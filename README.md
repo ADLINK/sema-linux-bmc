@@ -1,6 +1,6 @@
 
 ## How to install SEMA® - TivaBMC controller
-* see [documentation](https://adlinktech.github.io/sema/HowToInstallonLinux.html?type=bmc) for more details
+* see [documentation](https://www.adlinktech.com/Products/DownloadMDownload?lang=en&pdNo=1274&MainCategory=Industrial_IoT_and_Cloud_solutions&kind=M) for more details
 
 ## Supported Hardware List:
 * Express-CF/CFE, Express-KL/KLE, Express-SL/SLE, Express-DN7, Express-BD7
