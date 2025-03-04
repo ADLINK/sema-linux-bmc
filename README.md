@@ -1,5 +1,5 @@
 
-## How to install SEMA® - TivaBMC controller
+## How to install SEMA® - BMC controller
 * see [documentation](https://www.adlinktech.com/Products/DownloadMDownload?lang=en&pdNo=1274&MainCategory=Industrial_IoT_and_Cloud_solutions&kind=M) for more details
 
 ## Supported Hardware List:
