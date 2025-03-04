@@ -9,6 +9,7 @@
 * LEC-AL
 * Q7-AL
 * LEC-PX30
+* LEC-IMX8MP
 
 ### Supported Operating System:
 * Ubuntu 18.04, 20.04, 22.04
