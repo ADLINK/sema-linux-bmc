@@ -31,27 +31,25 @@ static char NVMEM_DEVICE[285];
 static int initialize_nvmem()
 {
 	struct dirent *de;
-        DIR *dr = opendir("/sys/bus/platform/devices/adl-bmc-nvmem");
+    DIR *dr = opendir("/sys/bus/platform/devices/adl-bmc-nvmem");
 
-        if (dr == NULL)  // opendir returns NULL if couldn't open directory 
-                return -1;
+    if (dr == NULL)  // opendir returns NULL if couldn't open directory 
+            return EAPI_STATUS_NOT_INITIALIZED;
         
 	memset(NVMEM_DEVICE, 0, sizeof(NVMEM_DEVICE));
-        while ((de = readdir(dr)) != NULL) {
-                if(strncmp(de->d_name, "nvmem_adl", strlen("nvmem_adl")) == 0) {
-                        sprintf(NVMEM_DEVICE, "/sys/bus/nvmem/devices/%s/nvmem", de->d_name);
-                        closedir(dr);
-                        return 0;
-                }
+    while ((de = readdir(dr)) != NULL) {
+        if(strncmp(de->d_name, "nvmem_adl", strlen("nvmem_adl")) == 0) {
+            sprintf(NVMEM_DEVICE, "/sys/bus/nvmem/devices/%s/nvmem", de->d_name);
+            closedir(dr);
+            return EAPI_STATUS_SUCCESS;
         }
-        closedir(dr);
+    }
+    closedir(dr);
 
-        return -1;
+    return EAPI_STATUS_NOT_INITIALIZED;
 }
 
-#define NVMEM_INIT() if(initialize_nvmem() < 0) return -1;
-
-
+#define NVMEM_INIT() if(initialize_nvmem() < 0) return EAPI_STATUS_NOT_INITIALIZED;
 
 uint32_t EApiStorageCap(uint32_t Id, uint32_t *pStorageSize, uint32_t *pBlockLength)
 {
@@ -59,29 +57,29 @@ uint32_t EApiStorageCap(uint32_t Id, uint32_t *pStorageSize, uint32_t *pBlockLen
 	char sysfile[256];
 	char buf[128];
 
-        if(pStorageSize == NULL && pBlockLength == NULL){
-                return EAPI_STATUS_INVALID_PARAMETER;
-        }
+    if(pStorageSize == NULL && pBlockLength == NULL){
+        return EAPI_STATUS_INVALID_PARAMETER;
+    }
 
 	if (Id != EAPI_ID_STORAGE_STD)
 		return EAPI_STATUS_UNSUPPORTED;
 
 	sprintf(sysfile, "/sys/bus/platform/devices/adl-bmc-nvmem/capabilities/nvmemcap");
 
-        status = read_sysfs_file(sysfile, buf, sizeof(buf));
+	status = read_sysfs_file(sysfile, buf, sizeof(buf));
 	if (status)
 		return EAPI_STATUS_READ_ERROR;
  
 	char* token = strtok(buf, " ");
-        if (strstr(token, "StorageSize")){
-	       	token = strtok(NULL, " ");
+    if (strstr(token, "StorageSize")){
+	    token = strtok(NULL, " ");
 	}
 
 	*pStorageSize = atoi(token);
 
 	token = strtok(NULL, " ");
-        if (strstr(token, "\nBlockLength")){
-	       	token = strtok(NULL, " ");
+    if (strstr(token, "\nBlockLength")){
+	    token = strtok(NULL, " ");
 	}
 
 	*pBlockLength = atoi(token);
@@ -140,7 +138,7 @@ uint32_t EApiStorageAreaWrite(uint32_t Id, unsigned short Offset, char* Buf, uin
 
 	fd = open(NVMEM_DEVICE, O_WRONLY);
 	if (fd < 0)
-		return -1;
+		return EAPI_STATUS_WRITE_ERROR;
 
 	lseek(fd, Offset, SEEK_SET);
 	ret = write(fd, Buf, Bytecnt);
@@ -148,7 +146,7 @@ uint32_t EApiStorageAreaWrite(uint32_t Id, unsigned short Offset, char* Buf, uin
 		close(fd);
 	else {
 		close(fd);
-		return -1;
+		return EAPI_STATUS_WRITE_ERROR;
 	}
 	
 	return status;

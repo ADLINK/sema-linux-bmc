@@ -34,15 +34,12 @@ uint32_t EApiLibInitialize(void)
 	}	
 
 	if (strlen(res) <= 1)
-		return -1;
+		return EAPI_STATUS_NOT_INITIALIZED;
 
-	return 0;
-
+	return EAPI_STATUS_SUCCESS;
 }
 
 uint32_t EApiLibUnInitialize(void)
 {
-
-	return 0;
+	return EAPI_STATUS_SUCCESS;
 }
-

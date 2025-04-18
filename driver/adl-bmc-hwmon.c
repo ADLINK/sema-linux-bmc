@@ -743,7 +743,7 @@ static ssize_t show_temp_input(struct device *dev, struct device_attribute *attr
 			if(ret < 0)
 				return ret;
 			
-			temper = (unsigned short)buff[0];
+			temper = encode_celcius(buff[0]);
 			break;
 		case 1:
 			ret = adl_bmc_i2c_read_device(hwmon_data->adl_dev, ADL_BMC_CMD_RD_SYSTEM_TEMP, 1, buff);

@@ -81,7 +81,6 @@ int get_hwmon_num(void)
 
 	}
 
-
 	for (fan_no=0;fan_no <= max_hwmon; fan_no++)
 	{
 		sprintf(fan_sysfile, "/sys/class/hwmon/hwmon%d/device/driver/adl-bmc-hwmon/", fan_no);
@@ -90,13 +89,10 @@ int get_hwmon_num(void)
 		{
 			closedir(dir);
 			return fan_no;
-		}
-		
-			
+		}	
 	}
 
 	return -1;
-
 }
 
 

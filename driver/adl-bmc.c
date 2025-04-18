@@ -16,7 +16,7 @@
 
 
 static struct adl_bmc_dev *adl_bmc_dev;
-
+static struct i2c_client *adl_client;
 static const struct mfd_cell adl_bmc_devs[] = {
         {
                 .name = "adl-bmc-wdt",
@@ -219,7 +219,65 @@ static struct i2c_driver adl_bmc_driver = {
 
 };
 
-module_i2c_driver(adl_bmc_driver);
+static int check_i2c_buses(void) {
+    struct i2c_adapter *adapter;
+    struct i2c_client *client;
+    struct i2c_board_info info;
+    int bus, found = 0;
+    char buf[10];
+
+    	memset(&info, 0, sizeof(struct i2c_board_info));
+    	strscpy(info.type, "adl-bmc", I2C_NAME_SIZE);
+
+        while((adapter = i2c_get_adapter(bus))!= NULL)
+        {
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5,5,0)
+                client = i2c_new_scanned_device(adapter,&info,bmc_address_list,NULL);
+#else
+                client = i2c_new_probed_device(adapter,&info,bmc_address_list,NULL);
+#endif
+                if(!IS_ERR(client))
+                {
+			if(strstr(adapter->name,"I801")|| strstr(adapter->name,"CMI"))
+			{
+                		i2c_unregister_device(client);
+                		i2c_put_adapter(adapter);
+				return 0;
+			}
+                        found = i2c_master_recv(client,buf,sizeof(buf));
+                        if(found > 0)
+                        {
+                                adl_client = client;
+                                return 0;
+                        }
+                }
+
+                i2c_unregister_device(client);
+                i2c_put_adapter(adapter);
+                found = 0;
+                bus++;
+        }
+
+	return 0;
+}
+
+static int __init adl_bmc_init(void) {
+    int ret;
+
+    ret = check_i2c_buses();
+    if (ret)
+        return ret;
+
+    return i2c_add_driver(&adl_bmc_driver);
+}
+
+static void __exit adl_bmc_exit(void) {
+      i2c_del_driver(&adl_bmc_driver);
+      i2c_unregister_device(adl_client);
+}
+
+module_init(adl_bmc_init);
+module_exit(adl_bmc_exit);
 
 MODULE_LICENSE("Dual BSD/GPL");
 MODULE_AUTHOR("Adlink ");

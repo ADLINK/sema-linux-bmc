@@ -172,7 +172,7 @@ uint32_t adjustBitMask(uint32_t id, uint32_t *Bitmask)
 			printf("Invalid Id\n");
 			return EAPI_STATUS_UNSUPPORTED;
 	}
-			return EAPI_STATUS_SUCCESS;
+	return EAPI_STATUS_SUCCESS;
 }
 
 
@@ -235,7 +235,7 @@ uint32_t EApiGPIOGetDirection(uint32_t Id, uint32_t Bitmask, uint32_t *pDirectio
 		}
 	}
 
-        return status;
+    return status;
 }
 
 uint32_t EApiGPIOSetDirection(uint32_t Id, uint32_t Bitmask, uint32_t Direction)
@@ -261,7 +261,7 @@ uint32_t EApiGPIOSetDirection(uint32_t Id, uint32_t Bitmask, uint32_t Direction)
 		}
 	}
 
-        return status;
+    return status;
 }
 
 uint32_t EApiGPIOGetLevel(uint32_t Id, uint32_t Bitmask, uint32_t *pLevel)
@@ -280,7 +280,7 @@ uint32_t EApiGPIOGetLevel(uint32_t Id, uint32_t Bitmask, uint32_t *pLevel)
 		if(Bitmask & (1 << bit)) {
 			sprintf(sysfile, "/sys/class/gpio/gpio%d/value", gpio);
 			if(read_sysfs_file(sysfile, value, sizeof(value)) < 0) {
-				return -1;
+				return EAPI_STATUS_READ_ERROR;
 			}
 			if(strncmp(value, "1", strlen("1")) == 0) {
 				*pLevel = 1;
@@ -291,7 +291,7 @@ uint32_t EApiGPIOGetLevel(uint32_t Id, uint32_t Bitmask, uint32_t *pLevel)
 		}
 	}
 
-        return status;
+    return status;
 }
 
 uint32_t EApiGPIOSetLevel(uint32_t Id, uint32_t Bitmask, uint32_t Level)
@@ -317,9 +317,5 @@ uint32_t EApiGPIOSetLevel(uint32_t Id, uint32_t Bitmask, uint32_t Level)
 		}
 	}
 
-        return status;
+    return status;
 }
-                                                                                                                                     
-                                                                                                                                     
-    
-

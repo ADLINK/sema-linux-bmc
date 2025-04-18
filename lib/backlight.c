@@ -24,8 +24,7 @@
 
 uint32_t EApiVgaGetBacklightEnable(uint32_t id, uint32_t *pEnable)
 {
-
-        uint32_t status = EAPI_STATUS_SUCCESS;
+	uint32_t status = EAPI_STATUS_SUCCESS;
 
 	char value[256];
 	char sysfile[256];
@@ -54,20 +53,19 @@ uint32_t EApiVgaGetBacklightEnable(uint32_t id, uint32_t *pEnable)
 
 uint32_t EApiVgaSetBacklightEnable(uint32_t id, uint32_t Enable)
 {
-        uint32_t status = EAPI_STATUS_SUCCESS;
-        char value[256];
+    uint32_t status = EAPI_STATUS_SUCCESS;
+    char value[256];
 	char sysfile[256];
 	int ret;
 
 	if(Enable != EAPI_BACKLIGHT_SET_ON && Enable != 1){
-                return EAPI_STATUS_INVALID_PARAMETER;
-        }
+        return EAPI_STATUS_INVALID_PARAMETER;
+    }
 
 	if (id  != EAPI_ID_BACKLIGHT_1) {
 		errno = EINVAL;
 		return EAPI_STATUS_UNSUPPORTED;
 	}
-
 
 	sprintf(sysfile, "/sys/class/backlight/adl-bmc-bklight/bl_power");
 	sprintf(value, "%u", Enable);
@@ -82,15 +80,15 @@ uint32_t EApiVgaSetBacklightEnable(uint32_t id, uint32_t Enable)
 
 uint32_t EApiVgaGetBacklightBrightness(uint32_t id, uint32_t *pBrightness)
 {
-        uint32_t status = EAPI_STATUS_SUCCESS;
+    uint32_t status = EAPI_STATUS_SUCCESS;
 	char value[256];
 	char sysfile[256];
 	int ret;
 
-        if(pBrightness == NULL){
+    if(pBrightness == NULL){
 		errno = EINVAL;
-                return EAPI_STATUS_INVALID_PARAMETER;
-        }
+        return EAPI_STATUS_INVALID_PARAMETER;
+    }
 
 	if (id  != EAPI_ID_BACKLIGHT_1) {
 		errno = EINVAL;
@@ -108,15 +106,15 @@ uint32_t EApiVgaGetBacklightBrightness(uint32_t id, uint32_t *pBrightness)
 
 uint32_t EApiVgaSetBacklightBrightness(uint32_t id, uint32_t Brightness)
 {
-        uint32_t status = EAPI_STATUS_SUCCESS;
+    uint32_t status = EAPI_STATUS_SUCCESS;
 	char value[256];
 	char sysfile[256];
 	ssize_t ret;
 
 	if(Brightness > EAPI_BACKLIGHT_SET_BRIGHTEST){
 		errno = EINVAL;
-                return EAPI_STATUS_INVALID_PARAMETER;
-        }
+        return EAPI_STATUS_INVALID_PARAMETER;
+    }
 
 	if (id  != EAPI_ID_BACKLIGHT_1) {
 		errno = EINVAL;

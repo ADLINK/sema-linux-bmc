@@ -5,11 +5,12 @@
 ## Supported Hardware List:
 * Express-CF/CFE, Express-KL/KLE, Express-SL/SLE, Express-DN7, Express-BD7
 * cExpress-WL, cExpress-KL, cExpress-SL, cExpress-AL
-* NanoX-AL
+* NanoX-AL, NanoX-BT, ETX-BT
 * LEC-AL
 * Q7-AL
 * LEC-PX30
 * LEC-IMX8MP
+* AMITx-ADG, ADi-SA3x-AD
 
 ### Supported Operating System:
 * Ubuntu 18.04, 20.04, 22.04
@@ -22,4 +23,4 @@
    
 ## Other information:
 * branch name: SEMA_4.0_Linux_SandBox/master
-* internal commit ID: bca0a7a1fc3c29de70cb6a5778289062883f83f1
+* internal commit ID: 30d46bdf12ba24963e2a2a3e7f515e39ea4b7ca0

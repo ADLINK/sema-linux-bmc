@@ -125,7 +125,10 @@ static int open_i2c_dev (uint8_t address)
 		return file;
 
 	if((ret = ioctl(file, I2C_SLAVE, address>>1)) < 0)
+	{
+		close(file);
 		return ret;
+	}
 
 	return file;
 }
