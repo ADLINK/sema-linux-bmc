@@ -24,7 +24,7 @@
 #include <conv.h>
 #include <eapi.h>
 
-#define Version	"ADLINK-SEMA-BMC-LINUX-V4_R3_1_25_04_18"
+#define Version	"ADLINK-SEMA-BMC-LINUX-V4_R3_2_25_05_05"
 
 char*			ExeName;
 uint8_t	SetWatchdog, TriggerWatchdog, StopWatchdog, WatchDogCap,IsPwrUpWDogStart, IsPwrUpWDogStop;
@@ -633,16 +633,16 @@ int DispatchCMDToSEMA(int argc,char *argv[])
 			printf("\nSystem Fan 3 speed: %d RPM\n\n", Value);
 			break;
 		case EAPI_SEMA_ID_BOARD_2ND_SYSTEM_TEMP:
-			printf("\nBoard 2nd Current temperature: %.2f K (%u C)\n\n",(Value * 0.1), EAPI_DECODE_CELCIUS(Value));
+			printf("\nBoard 2nd Current temperature: %u K (%u C)\n\n",Value, EAPI_DECODE_CELCIUS(Value));
 			break;
 		case EAPI_SEMA_ID_BOARD_2ND_SYSTEM_MIN_TEMP:
-			printf("\nBoard 2nd minimum temperature: %.2f K (%u C)\n\n",(Value * 0.1), EAPI_DECODE_CELCIUS(Value));
+			printf("\nBoard 2nd minimum temperature: %u K (%u C)\n\n",Value, EAPI_DECODE_CELCIUS(Value));
 			break;
 		case EAPI_SEMA_ID_BOARD_2ND_SYSTEM_MAX_TEMP:
-			printf("\nBoard 2nd maximum temperature: %.2f K (%u C)\n\n",(Value * 0.1), EAPI_DECODE_CELCIUS(Value));
+			printf("\nBoard 2nd maximum temperature: %u K (%u C)\n\n",Value, EAPI_DECODE_CELCIUS(Value));
 			break;
 		case EAPI_SEMA_ID_BOARD_2ND_SYSTEM_STARTUP_TEMP:
-			printf("\nBoard 2nd startup temperature: %.2f K (%u C)\n\n",(Value * 0.1), EAPI_DECODE_CELCIUS(Value));
+			printf("\nBoard 2nd startup temperature: %u K (%u C)\n\n",Value, EAPI_DECODE_CELCIUS(Value));
 			break;
 		case EAPI_SEMA_ID_BOARD_POWER_CYCLE:
 			printf("\nPower cycle counter: %d\n\n", Value);

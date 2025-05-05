@@ -69,6 +69,49 @@ void CollectCapabilities(unsigned int *Capabilities, unsigned DataCount, unsigne
 
 EXPORT_SYMBOL_GPL (CollectCapabilities);
 
+static int __maybe_unused bmc_read_reg(struct i2c_client *client, u8 reg, u8 len, u8 *res)
+{
+	struct i2c_msg msg[2];
+	u8 buf[64];
+	int ret;
+
+	msg[0].addr = client->addr;
+	msg[0].flags = client->flags;
+	msg[0].buf = &reg;
+	msg[0].len = sizeof(reg);
+
+	msg[1].addr = client->addr;
+	msg[1].flags = client->flags | I2C_M_RD;
+	msg[1].buf = buf;
+	msg[1].len = 32;
+
+	ret = i2c_transfer(client->adapter, msg, 2);
+	if (ret < 0) {
+		dev_err(&client->dev, "%s: error: reg=%x\n",
+				__func__, reg);
+		return ret;
+	}
+
+	memcpy(res, &buf[1], buf[0]);
+	return buf[0];
+}
+
+static int __maybe_unused bmc_write_reg(struct i2c_client *client, u8 reg, u8 len, u8 *res)
+{
+    struct i2c_msg msg;
+    u8 buf[64];
+
+    msg.addr = client->addr;
+    msg.flags = client->flags;
+    msg.buf = buf;
+    msg.len = len + 2;
+
+    buf[0] = reg;
+    buf[1] = len;
+    memcpy(&buf[2], res, buf[1]);
+
+    return i2c_transfer(client->adapter, &msg, 1);
+}
 
 
 int adl_bmc_i2c_read_device(struct adl_bmc_dev *adl_bmc, char reg,
@@ -77,7 +120,12 @@ int adl_bmc_i2c_read_device(struct adl_bmc_dev *adl_bmc, char reg,
         struct i2c_client *i2c = (adl_bmc == NULL) ? adl_bmc_dev->i2c_client : adl_bmc->i2c_client;
         int ret;
 
+#if defined(__x86_64__) || defined(__i386__)
 	ret = i2c_smbus_read_block_data(i2c, reg, dest);
+#else
+	ret = bmc_read_reg(i2c, reg, bytes,dest);
+#endif
+
 	if (ret < 0)
 		debug_printk("return value is  %d\n", ret);
 
@@ -94,7 +142,12 @@ int adl_bmc_i2c_write_device(struct adl_bmc_dev *adl_bmc, int reg,
         struct i2c_client *i2c = (adl_bmc == NULL) ? adl_bmc_dev->i2c_client : adl_bmc->i2c_client;
         int ret;
 
+#if defined(__x86_64__) || defined(__i386__)
 	ret = i2c_smbus_write_block_data(i2c, reg, bytes , src);
+#else
+	ret = bmc_write_reg(i2c, reg, bytes, src);
+#endif
+
 	if (ret < 0)
 		debug_printk("return value is  %d\n", ret);
 

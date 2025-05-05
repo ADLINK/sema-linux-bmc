@@ -9,7 +9,7 @@
 * LEC-AL
 * Q7-AL
 * LEC-PX30
-* LEC-IMX8MP
+* LEC-IMX8MP,LEC-RB5N, LEC-RB5
 * AMITx-ADG, ADi-SA3x-AD
 
 ### Supported Operating System:
@@ -23,4 +23,4 @@
    
 ## Other information:
 * branch name: SEMA_4.0_Linux_SandBox/master
-* internal commit ID: 30d46bdf12ba24963e2a2a3e7f515e39ea4b7ca0
+* internal commit ID: e5bd7a6a71cbdf1cd51404e90d3784f3a5d3adf3
