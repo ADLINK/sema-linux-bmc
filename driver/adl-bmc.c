@@ -72,7 +72,7 @@ EXPORT_SYMBOL_GPL (CollectCapabilities);
 static int __maybe_unused bmc_read_reg(struct i2c_client *client, u8 reg, u8 len, u8 *res)
 {
 	struct i2c_msg msg[2];
-	u8 buf[64];
+	u8 buf[64] = {0};
 	int ret;
 
 	msg[0].addr = client->addr;
@@ -99,7 +99,7 @@ static int __maybe_unused bmc_read_reg(struct i2c_client *client, u8 reg, u8 len
 static int __maybe_unused bmc_write_reg(struct i2c_client *client, u8 reg, u8 len, u8 *res)
 {
     struct i2c_msg msg;
-    u8 buf[64];
+    u8 buf[64] = {0};
 
     msg.addr = client->addr;
     msg.flags = client->flags;
@@ -210,7 +210,12 @@ static int adl_bmc_probe ( struct i2c_client *client, const struct i2c_device_id
         adl_bmc_dev->i2c_client = client;
 
 	memset(buf, 0, sizeof(buf));
+#if defined(__x86_64__) || defined(__i386__)
         ret = i2c_smbus_read_block_data(client, ADL_BMC_CMD_CAPABILITIES, buf);
+#else
+	ret = bmc_read_reg(client, ADL_BMC_CMD_CAPABILITIES, sizeof(buf), buf);
+#endif
+
 	if (ret < 0)
 		return ret;
 
@@ -276,7 +281,7 @@ static int check_i2c_buses(void) {
     struct i2c_adapter *adapter;
     struct i2c_client *client;
     struct i2c_board_info info;
-    int bus, found = 0;
+    int bus = 0, found = 0;
     char buf[10];
 
     	memset(&info, 0, sizeof(struct i2c_board_info));
@@ -291,7 +296,7 @@ static int check_i2c_buses(void) {
 #endif
                 if(!IS_ERR(client))
                 {
-			if(strstr(adapter->name,"I801")|| strstr(adapter->name,"CMI"))
+			if(strstr(adapter->name,"I801")|| strstr(adapter->name,"CMI") || strstr(adapter->name,"Geni"))
 			{
                 		i2c_unregister_device(client);
                 		i2c_put_adapter(adapter);

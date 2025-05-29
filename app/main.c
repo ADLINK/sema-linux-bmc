@@ -24,7 +24,7 @@
 #include <conv.h>
 #include <eapi.h>
 
-#define Version	"ADLINK-SEMA-BMC-LINUX-V4_R3_2_25_05_05"
+#define Version	"ADLINK-SEMA-BMC-LINUX-V4_R3_3_25_05_29"
 
 char*			ExeName;
 uint8_t	SetWatchdog, TriggerWatchdog, StopWatchdog, WatchDogCap,IsPwrUpWDogStart, IsPwrUpWDogStop;
@@ -801,7 +801,7 @@ int DispatchCMDToSEMA(int argc,char *argv[])
 			printf("\nBoard name: %s\n", BoardInfo);
 			break;
 		case EAPI_ID_BOARD_SERIAL_STR:
-			printf("\nBoard serial number: %s\n\n", BoardInfo);
+			printf("\nBoard serial number: %s\n", BoardInfo);
 			break;
 		case EAPI_ID_BOARD_BIOS_REVISION_STR:
 			printf("\nBoard BIOS revision: %s\n", BoardInfo);
