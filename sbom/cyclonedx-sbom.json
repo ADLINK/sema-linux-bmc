@@ -1,0 +1,1093 @@
+{
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.6",
+    "serialNumber": "urn:uuid:792f55fc-b92a-4aa2-8684-9df034ad3b12",
+    "version": 1,
+    "metadata": {
+        "timestamp": "2025-10-24T07:51:46Z",
+        "tools": [
+            {
+                "vendor": "AboutCode.org",
+                "name": "scancode-toolkit",
+                "version": "32.4.1"
+            }
+        ]
+    },
+    "components": [
+        {
+            "type": "file",
+            "bom-ref": "cacert.pem",
+            "name": "cacert.pem",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "c86451eb4618aeb7a8d702ae1faf039339caa639"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "cakey.pem",
+            "name": "cakey.pem",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "e471d410006d17d57f0b4dd93ec5378b5a2db12c"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "Makefile",
+            "name": "Makefile",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "9c51a1bda4ae9baf26ac035d858b4284bf386b2f"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "BSD-3-Clause"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "README.md",
+            "name": "README.md",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "4f5ded7dd57a4f31a7e011662d4d41403edf47f0"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "signing_key.pem",
+            "name": "signing_key.pem",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "af466a39d93022a0195290fd5e44beed0e8bb927"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "signing_key.x509",
+            "name": "signing_key.x509",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "0c3c4b28c96bc126c3fe83c59823b71864fa7931"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "x509.genkey",
+            "name": "x509.genkey",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "98cffc3a11f0d9ad33c3ceaef44bd81473d2337d"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "app",
+            "name": "app",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "app/main.c",
+            "name": "app/main.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "2045f4f4cf8ef94eb6a753d7bda18206a672832c"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "certs",
+            "name": "certs",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "certs/signing_key.pem",
+            "name": "certs/signing_key.pem",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "c86451eb4618aeb7a8d702ae1faf039339caa639"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "driver",
+            "name": "driver",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "driver/adl-bmc-bklight.c",
+            "name": "driver/adl-bmc-bklight.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "ae9fa6dc309621c24108ca1579863f473c4bbe79"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "(GPL-2.0-only OR BSD-3-Clause) AND (BSD-3-Clause OR GPL-2.0-only)"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "driver/adl-bmc-boardinfo.c",
+            "name": "driver/adl-bmc-boardinfo.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "cf26e8037d200776807566455636bbb277187483"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "(GPL-2.0-only OR BSD-3-Clause) AND (BSD-3-Clause OR GPL-2.0-only)"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "driver/adl-bmc-hwmon.c",
+            "name": "driver/adl-bmc-hwmon.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "b89998d8d1ff81359a593d006a0f6c7fa9bcf426"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "(GPL-2.0-only OR BSD-3-Clause) AND (BSD-3-Clause OR GPL-2.0-only)"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "driver/adl-bmc-i2c.c",
+            "name": "driver/adl-bmc-i2c.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "377c931e267f0938ea4b4544b5e45e8bc81225cd"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "(GPL-2.0-only OR BSD-3-Clause) AND (BSD-3-Clause OR GPL-2.0-only)"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "driver/adl-bmc-nvmem.c",
+            "name": "driver/adl-bmc-nvmem.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "3e2f0c4d5ec620b2121ca8264573b751238f8b14"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "(GPL-2.0-only OR BSD-3-Clause) AND (BSD-3-Clause OR GPL-2.0-only)"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "driver/adl-bmc-vm.c",
+            "name": "driver/adl-bmc-vm.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "7c711fd681eb4aea87b5e816334815b7908621cf"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "(GPL-2.0-only OR BSD-3-Clause) AND (BSD-3-Clause OR GPL-2.0-only)"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "driver/adl-bmc-wdt.c",
+            "name": "driver/adl-bmc-wdt.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "ab56764a6e4c60b7ad100351439886caaf245e16"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "(GPL-2.0-only OR BSD-3-Clause) AND (BSD-3-Clause OR GPL-2.0-only)"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "driver/adl-bmc.c",
+            "name": "driver/adl-bmc.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "9dceaf223292845ae68effcb5ed8c801e2872516"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "(GPL-2.0-only OR BSD-3-Clause) AND GPL-2.0-only AND (BSD-3-Clause OR GPL-2.0-only)"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "driver/adl-bmc.h",
+            "name": "driver/adl-bmc.h",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "96e40604114d8b57f1f64d66113fef522976e786"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "(GPL-2.0-only OR BSD-3-Clause) AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "i2c-smbus-drivers",
+            "name": "i2c-smbus-drivers",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-3.10",
+            "name": "i2c-smbus-drivers/i2c-smbus-3.10",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-3.10/i2c-i801.c",
+            "name": "i2c-smbus-drivers/i2c-smbus-3.10/i2c-i801.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "48433a6fc267013e20c15ee58927cdf7dff20331"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "GPL-2.0-or-later"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-3.10/Makefile",
+            "name": "i2c-smbus-drivers/i2c-smbus-3.10/Makefile",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "395ef0e2ff4a907494002a832258f3365af97fa4"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-4.15",
+            "name": "i2c-smbus-drivers/i2c-smbus-4.15",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-4.15/i2c-i801.c",
+            "name": "i2c-smbus-drivers/i2c-smbus-4.15/i2c-i801.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "e6dcd63ae48b671671a7827fe9e87c11b2e995a6"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "GPL-2.0-or-later"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-4.15/Makefile",
+            "name": "i2c-smbus-drivers/i2c-smbus-4.15/Makefile",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "395ef0e2ff4a907494002a832258f3365af97fa4"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-4.18",
+            "name": "i2c-smbus-drivers/i2c-smbus-4.18",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-4.18/i2c-i801.c",
+            "name": "i2c-smbus-drivers/i2c-smbus-4.18/i2c-i801.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "5f8dee7b3be1ab2f8931bb945537268f379bfec2"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "GPL-2.0-or-later"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-4.18/Makefile",
+            "name": "i2c-smbus-drivers/i2c-smbus-4.18/Makefile",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "395ef0e2ff4a907494002a832258f3365af97fa4"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-5.15",
+            "name": "i2c-smbus-drivers/i2c-smbus-5.15",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-5.15/i2c-i801.c",
+            "name": "i2c-smbus-drivers/i2c-smbus-5.15/i2c-i801.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "6c8be1440e1de7abbc9fff96f812ac02f035e45f"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "GPL-2.0-or-later"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-5.15/Makefile",
+            "name": "i2c-smbus-drivers/i2c-smbus-5.15/Makefile",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "395ef0e2ff4a907494002a832258f3365af97fa4"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-5.3",
+            "name": "i2c-smbus-drivers/i2c-smbus-5.3",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-5.3/i2c-i801.c",
+            "name": "i2c-smbus-drivers/i2c-smbus-5.3/i2c-i801.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "76c6e445e0bb0fe016b28d9aa3e33e01ddfb943e"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "GPL-2.0-or-later"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-5.3/Makefile",
+            "name": "i2c-smbus-drivers/i2c-smbus-5.3/Makefile",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "395ef0e2ff4a907494002a832258f3365af97fa4"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-5.4",
+            "name": "i2c-smbus-drivers/i2c-smbus-5.4",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-5.4/i2c-i801.c",
+            "name": "i2c-smbus-drivers/i2c-smbus-5.4/i2c-i801.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "6c5498492cb2a61663f3af275e975a006ebe35f2"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "GPL-2.0-or-later"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-5.4/Makefile",
+            "name": "i2c-smbus-drivers/i2c-smbus-5.4/Makefile",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "395ef0e2ff4a907494002a832258f3365af97fa4"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-6.8",
+            "name": "i2c-smbus-drivers/i2c-smbus-6.8",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-6.8/i2c-i801.c",
+            "name": "i2c-smbus-drivers/i2c-smbus-6.8/i2c-i801.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "6c8be1440e1de7abbc9fff96f812ac02f035e45f"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "GPL-2.0-or-later"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "i2c-smbus-drivers/i2c-smbus-6.8/Makefile",
+            "name": "i2c-smbus-drivers/i2c-smbus-6.8/Makefile",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "395ef0e2ff4a907494002a832258f3365af97fa4"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "lib",
+            "name": "lib",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/backlight.c",
+            "name": "lib/backlight.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "63f7a22c97c282c17dba8ad78294d8b4377c2ba4"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/boardinfo.c",
+            "name": "lib/boardinfo.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "ab0da4418403d5de393ffd38a3b5a7a601ae9d35"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/common.c",
+            "name": "lib/common.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "dd85c15edb5c73c99d456d70696faac5ac3d91d1"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/common.h",
+            "name": "lib/common.h",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "72e162059213ee5d62fd5c1230a4589f505cb352"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/conv.c",
+            "name": "lib/conv.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "80e231c8b2f0bd21156de34f7a50037093b671f8"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/conv.h",
+            "name": "lib/conv.h",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "0420c1d71b7b264627b84a25d892827b304a267b"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/eapi.h",
+            "name": "lib/eapi.h",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "f40494866223baa80e36e51ae62253eaf6aeac20"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/errorcodes.h",
+            "name": "lib/errorcodes.h",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "5630281a13ea98da149183bb9c97ebadcaabd84e"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/fan.c",
+            "name": "lib/fan.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "c8bf06e51dbee7672b0c4ea67c0ad37883d162fd"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/gpio.c",
+            "name": "lib/gpio.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "0331b0095db44c76e77f79e179dcd85cd4a5c05f"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/i2c.c",
+            "name": "lib/i2c.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "45ed1de8ff7c4e45eef1cc7f0acb653ac042044f"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/init.c",
+            "name": "lib/init.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "9e3e8130c4fac22b99e97d35d38ceedf2be235c6"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/storage.c",
+            "name": "lib/storage.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "dfea65f1b81b4c2a9f7840cc6cf26fb058964ba5"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "lib/watchdog.c",
+            "name": "lib/watchdog.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "84e1b817eaba65d7b89f344f02d65d5bc163cdc2"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "directory",
+            "bom-ref": "watchdogtest",
+            "name": "watchdogtest",
+            "version": "1.0.0",
+            "hashes": [],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "Unknown"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "bom-ref": "watchdogtest/watchdog-test.c",
+            "name": "watchdogtest/watchdog-test.c",
+            "version": "1.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-1",
+                    "content": "586fb231ed84e60afa99c0210c281040a9c50df7"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "name": "BSD-3-Clause AND BSD-Source-Code"
+                    }
+                }
+            ]
+        }
+    ]
+}
