@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause) */
+
 #define pr_fmt(fmt) "adlink-i2c: " fmt
 
 #include <linux/errno.h>
