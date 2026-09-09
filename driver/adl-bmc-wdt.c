@@ -6,6 +6,7 @@
 #include <linux/kernel.h>
 #include <linux/watchdog.h>
 #include <linux/platform_device.h>
+#include <linux/version.h>
 #include "adl-bmc.h"
 
 
@@ -223,7 +224,12 @@ static int adl_bmc_wdt_probe(struct platform_device *pdev)
         return 0;
 }
 
+
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,11,0)
+static void  adl_bmc_wdt_remove(struct platform_device *pdev)
+#else
 static int adl_bmc_wdt_remove(struct platform_device *pdev)
+#endif	
 {
 	struct adl_bmc_wdt *awdt = platform_get_drvdata(pdev);
 
@@ -236,7 +242,9 @@ static int adl_bmc_wdt_remove(struct platform_device *pdev)
         watchdog_unregister_device(&awdt->wdt);
 
 	kfree(awdt);
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6,11,0)
 	return 0;
+#endif
 }
 
 

@@ -13,7 +13,7 @@
 * AMITx-ADG, ADi-SA3x-AD
 
 ### Supported Operating System:
-* Ubuntu 18.04, 20.04, 22.04
+* Ubuntu 18.04, 20.04, 22.04, 24.04
 * Debian 
 * CentOS 7
 
@@ -23,4 +23,4 @@
    
 ## Other information:
 * branch name: SEMA_4.0_Linux_SandBox/master
-* internal commit ID: 3845993b55b497d878a32693aab759428002e86e
+* internal commit ID: 5f6e985926b9002c7bd0827842a0d532ace78b9d

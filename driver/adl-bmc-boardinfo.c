@@ -11,7 +11,7 @@
 #include <linux/sysfs.h>
 #include <linux/device.h>
 #include <linux/string.h>
-
+#include <linux/version.h>
 #include "adl-bmc.h"
 
 static unsigned short errnum_desc;
@@ -31,7 +31,7 @@ struct boarderrlog {
 	char boardtemp;
 };
 
-int converttoint(char *buf)
+static int converttoint(char *buf)
 {
         int i, result = 0;
         for(i = 0;buf[i] != 0; i++)
@@ -43,7 +43,7 @@ int converttoint(char *buf)
         return result;
 }
 
-unsigned short get_voltage_id(unsigned char ch)
+static unsigned short get_voltage_id(unsigned char ch)
 {
 	int ret;
 	unsigned char buff[32];
@@ -67,7 +67,7 @@ unsigned short get_voltage_id(unsigned char ch)
 	return id;
 }
 
-unsigned char get_cur_channel(void)
+static unsigned char get_cur_channel(void)
 {
 	static unsigned char channel = 0;
 	static unsigned char currentch = 0;
@@ -88,7 +88,7 @@ unsigned char get_cur_channel(void)
 	return channel;
 }
 
-unsigned short get_scale_factor(unsigned char ch)
+static unsigned short get_scale_factor(unsigned char ch)
 {
 	static unsigned short scale[16];
 	static unsigned char scaleavail = 0;
@@ -114,7 +114,7 @@ unsigned short get_scale_factor(unsigned char ch)
 	return scale[ch];
 }
 
-int get_voltage_value(unsigned char ch, int *pValue)
+static int get_voltage_value(unsigned char ch, int *pValue)
 {
 	u64 vol_val, vol_val_fl;
 	unsigned char buff[32];
@@ -148,7 +148,7 @@ int get_voltage_value(unsigned char ch, int *pValue)
 
 }
 
-int get_voltage_description(unsigned char Ch, char *Buffer)
+static int get_voltage_description(unsigned char Ch, char *Buffer)
 {
 	unsigned char	buf[32] = { 0 };
 	unsigned short	ID;
@@ -198,7 +198,7 @@ int get_voltage_description(unsigned char Ch, char *Buffer)
 }
 
 
-int get_voltage_description_ext(unsigned char Ch , char *Buffer , bool truncate)
+static int get_voltage_description_ext(unsigned char Ch , char *Buffer , bool truncate)
 {
 	static char desc[16][17] = { { 0 } };
 	static bool descriptionavailable = false;
@@ -244,7 +244,7 @@ int get_voltage_description_ext(unsigned char Ch , char *Buffer , bool truncate)
 	return 0;
 }
 
-int get_voltage(char ch,int stsize, const char **cmp, uint32_t* pValue)
+static int get_voltage(char ch,int stsize, const char **cmp, uint32_t* pValue)
 {
 	unsigned char k;
 	int res;
@@ -505,8 +505,9 @@ static ssize_t bmc_application_version_show(struct kobject *kobj, struct kobj_at
 		*--ptr = 0;
 	}
 	else
+	{
 		debug_printk("No Copyright string found (c), some thing wrong");
-	
+	}
         return sprintf(buf, "%s\n", buff);
 }
 
@@ -1303,7 +1304,11 @@ ret_err:
 
 }
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,11,0)
+static void boardinfo_remove(struct platform_device *pdev)
+#else
 static int boardinfo_remove(struct platform_device *pdev)
+#endif
 {
         sysfs_remove_file(kernel_kobj, &attr0.attr);
         sysfs_remove_file(kernel_kobj, &attr1.attr);
@@ -1344,8 +1349,9 @@ static int boardinfo_remove(struct platform_device *pdev)
         sysfs_remove_file(kernel_kobj, &attr36.attr);
         sysfs_remove_file(kernel_kobj, &attr37.attr);
 	kobject_put(kobj_ref);
-
-	return 0;
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6,11,0)
+    	return 0;
+#endif
 }
 
 static struct platform_driver adl_bmc_boardinfo_driver = {

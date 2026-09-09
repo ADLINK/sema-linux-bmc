@@ -9,7 +9,7 @@
 #include <linux/platform_device.h>
 #include <linux/nvmem-provider.h>
 #include <linux/delay.h>
-
+#include <linux/version.h>
 #include "adl-bmc.h"
 
 struct kobject *kobj_ref;
@@ -151,7 +151,7 @@ static int adl_bmc_nvmem_probe(struct platform_device *pdev)
 	int ret;
 	struct nvmem_device *nvdev;
 	struct adl_bmc_dev *adl_dev;
-	struct module owner;
+	
 
 	adl_dev = dev_get_drvdata(pdev->dev.parent);
 
@@ -163,7 +163,7 @@ static int adl_bmc_nvmem_probe(struct platform_device *pdev)
 
 	adl_bmc_nvmem_config.dev = &pdev->dev;
 	adl_bmc_nvmem_config.size = storagesize;
-	adl_bmc_nvmem_config.owner = &owner;
+	adl_bmc_nvmem_config.owner = THIS_MODULE;
 
 	debug_printk("probe ..............\n");
 
@@ -191,7 +191,11 @@ static int adl_bmc_nvmem_probe(struct platform_device *pdev)
 }
 
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,11,0)
+static void adl_bmc_nvmem_remove(struct platform_device *pdev)
+#else
 static int adl_bmc_nvmem_remove(struct platform_device *pdev)
+#endif
 {
 
 	struct nvmem_device *nvdev;
@@ -201,7 +205,9 @@ static int adl_bmc_nvmem_remove(struct platform_device *pdev)
 	kobject_put(kobj_ref);
 
 	nvmem_unregister(nvdev);
-	return 0;
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6,11,0)
+    	return 0;
+#endif
 
 }
 

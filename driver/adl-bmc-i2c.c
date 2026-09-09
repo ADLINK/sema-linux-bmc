@@ -11,6 +11,7 @@
 #include <linux/slab.h>
 #include <linux/platform_device.h>
 #include <linux/delay.h>
+#include <linux/version.h>
 #include "adl-bmc.h"
 
 #define SLAVE_ADDR(x)						(((x)<<1) & 0xFE)
@@ -311,12 +312,18 @@ static int adl_bmc_i2c_probe(struct platform_device *pdev)
 	return i2c_add_adapter(adap);
 }
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,11,0)
+static void adl_bmc_i2c_remove(struct platform_device *pdev)
+#else
 static int adl_bmc_i2c_remove(struct platform_device *pdev)
+#endif
 {
 	struct adlink_i2c_dev *adlink = platform_get_drvdata(pdev);
 
 	i2c_del_adapter(&adlink->adapter);
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6,11,0)
 	return 0;
+#endif
 }
 
 static struct platform_driver adl_bmc_i2c_driver = {

@@ -24,7 +24,7 @@
 #include <conv.h>
 #include <eapi.h>
 
-#define Version	"ADLINK-SEMA-BMC-LINUX-V4_R3_4_25_10_24"
+#define Version	"ADLINK-SEMA-BMC-LINUX-V4_R3_5_26_08_27"
 
 char*			ExeName;
 uint8_t	SetWatchdog, TriggerWatchdog, StopWatchdog, WatchDogCap,IsPwrUpWDogStart, IsPwrUpWDogStop;

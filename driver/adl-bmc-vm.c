@@ -50,7 +50,7 @@ struct data{
 static int voltagenum = 0;
 unsigned int voltagevalue[32] = {0};
 
-int converttoint(char *buf)
+static int converttoint(char *buf)
 {
         int i, result = 0;
         for(i = 0;buf[i] != 0; i++)
@@ -114,7 +114,7 @@ static struct regulator_init_data adl_bmc_initdata = {
 	},
 };
 
-int open(struct inode *inode, struct file *file)
+static int open(struct inode *inode, struct file *file)
 {
 	if(flag==0)
 	{
@@ -128,7 +128,7 @@ int open(struct inode *inode, struct file *file)
 	return 0;
 }
 
-int release(struct inode *inode , struct file *file)
+static int release(struct inode *inode , struct file *file)
 {
 	flag=0;
 	return 0;
@@ -328,13 +328,16 @@ static int adl_bmc_vm_probe(struct platform_device *pdev)
 		data[0] = (unsigned char)i;
 		ret = adl_bmc_i2c_write_device(vm_data->adl_dev, ADL_BMC_CMD_EXT_HW_DESC, 1, data);
 		if (ret < 0)
+		{
 			debug_printk("return failed  in write i=%d\n", i);
+		}
 		msleep(30);
 		ret = adl_bmc_i2c_read_device(vm_data->adl_dev, ADL_BMC_CMD_EXT_HW_DESC, 16, data);
 		if (ret < 0)
+		{
 			debug_printk("return failed in read i=%d\n", i);
 		//printk("Buffer is %s\n", data +4);
-
+		}
 
 		data[15] = 0;
 		strcat(vm_data->name_arr[i], data + 4);
@@ -361,7 +364,11 @@ ret_err:
 
 }
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,11,0)
+static void adl_bmc_vm_remove(struct platform_device *pdev)
+#else
 static int adl_bmc_vm_remove(struct platform_device *pdev)
+#endif
 {
 	struct adl_bmc_vm_data *vm_data = platform_get_drvdata(pdev);
 	debug_printk("Remove...............\n");
@@ -377,7 +384,9 @@ static int adl_bmc_vm_remove(struct platform_device *pdev)
 
 	devm_kfree(&pdev->dev, vm_data);
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6,11,0)
 	return 0;
+#endif
 }
 
 static struct platform_driver adl_bmc_vm_driver = {

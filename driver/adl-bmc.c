@@ -128,8 +128,9 @@ int adl_bmc_i2c_read_device(struct adl_bmc_dev *adl_bmc, char reg,
 #endif
 
 	if (ret < 0)
+	{
 		debug_printk("return value is  %d\n", ret);
-
+	}
 
         return ret;
 }
@@ -150,8 +151,9 @@ int adl_bmc_i2c_write_device(struct adl_bmc_dev *adl_bmc, int reg,
 #endif
 
 	if (ret < 0)
+	{
 		debug_printk("return value is  %d\n", ret);
-
+	}
 
         return ret;
 }
@@ -234,7 +236,7 @@ static int adl_bmc_probe ( struct i2c_client *client, const struct i2c_device_id
 }
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(6,1,0)
-void adl_bmc_remove ( struct i2c_client *client)
+static void adl_bmc_remove ( struct i2c_client *client)
 {
 
 	struct device *dev = &client->dev;

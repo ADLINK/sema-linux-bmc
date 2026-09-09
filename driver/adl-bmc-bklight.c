@@ -167,7 +167,11 @@ static int adl_bmc_bklight_probe(struct platform_device *pdev)
 	return 0;
 }
 
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6,11,0)
+static void adl_bmc_bklight_remove(struct platform_device *pdev)
+#else
 static int adl_bmc_bklight_remove(struct platform_device *pdev)
+#endif
 {
 	struct backlight_device *bl = platform_get_drvdata(pdev);
 
@@ -177,7 +181,9 @@ static int adl_bmc_bklight_remove(struct platform_device *pdev)
 		backlight_device_unregister(bl);
 	#endif
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(6,11,0)
 	return 0;
+#endif
 }
 
 static struct platform_driver adl_bmc_bklight_driver = {
